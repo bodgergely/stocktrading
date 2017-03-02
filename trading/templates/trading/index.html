@@ -1,0 +1,59 @@
+{% extends 'trading/base.html' %}
+{% load staticfiles %}
+{% block head %}
+	<title> Summary </title>
+    <link href="{% static 'bootstrap.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block body %}
+	<div id="top">
+		<h4> Welcome to the Stock Demo app! </h4><br>
+		<h5> Your current cash balance: <b>{{ balance }}</b> </h5> 
+		<h5> Your current total wealth: <b>{{ total_wealth }}</b> </h5> <br>
+		<h4> Portfolio: </h4><br>
+	</div>
+	<div>
+			<table class="table-striped">
+				<thead>
+				  <tr>
+					<th>#</th>
+					<th>Symbol</th>
+					<th>Quantity</th>
+					<th>Current Value</th>
+				  </tr>
+				</thead>
+				<tbody>
+				{% for elem in portfolio %}
+				  <tr>
+					<td>{{ elem.id }}</td>
+					<td>{{ elem.stock_symbol }}</td>
+					<td>{{ elem.quantity }}</td>
+					<td>{{ elem.current_value }}</td>
+				  </tr>
+				{% endfor %}
+				</tbody>
+			</table>
+	</div>
+	<br><h4 id="top" ><b> Transaction History: </b></h4><br>
+	<table class="table-hover">
+		<tr>
+			<thead>
+				<th> Date </th>
+				<th> Symbol </th>
+				<th> Quantity </th> 
+				<th> Total Price </th>
+				<th> Per Share Price </th>
+			</thead>
+		</tr>
+		<tbody>
+		{% for elem in transactions %}
+			<tr>
+				<td> {{ elem.date }} </td>
+				<td> {{ elem.stock_symbol }} </td>
+				<td> {{ elem.quantity }} </td>
+				<td> {{ elem.purchase_price }} </td>
+				<td> {{ elem.per_share_price }} </td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

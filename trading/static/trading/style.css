@@ -1,0 +1,39 @@
+body {
+	background: white url("images/background.jpg");
+}
+
+#top {
+	color: white;
+	font-family: Helvetica;
+	margin: 0 auto;
+	max-width: 120em;
+	line-height: 1.5;
+	padding: 1em 1em;
+	font-size: 14px;
+	text-align: center
+}
+
+#form {
+	color:black;
+	max-width: 120em;
+	text-indent: 2.0em;
+	padding-left: 30px;
+}
+
+table {
+	color: white;
+	margin-left: 8 auto;
+	width:80%;
+	border-spacing: 5px;
+}
+table, th, td {
+	margin: 10 auto;
+	color: white;
+	border: 2px solid white;
+	border-collapse: collapse;
+}
+th, td {
+	color: white;
+	padding: 5px;
+	text-align: left;
+}

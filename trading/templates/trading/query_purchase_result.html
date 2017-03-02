@@ -1,0 +1,17 @@
+{% extends 'trading/base.html' %}
+{% block head %}
+<head>
+	<title> {{ title }} </title>
+</head>
+{% endblock %}
+{% block body %}
+	<div id="top">
+		{% if title == "Purchase" %}
+			<h4> Success! You have purchased {{ quantity }} {{ stock_symbol }} stocks for a total of: {{cash_needed}}$ ({{ current_price }}$/share) </h4>
+			<a href="{% url 'trading:purchase' %}"> Back to {{ title }} </a>
+		{% elif title == "Query" %}
+			<h4> The current price for {{ stock_symbol }}: <b>{{ current_price }}$</b> </h4>
+			<a href="{% url 'trading:query' %}"> Back to {{ title }} </a>
+		{% endif %}
+	</div>
+{% endblock %}

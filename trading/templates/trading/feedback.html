@@ -1,0 +1,22 @@
+{% extends 'trading/base.html' %}
+{% block head %}
+<head>
+	<title> {{ title }} {{ result }} </title>
+</head>
+{% endblock %}
+{% block body %}
+	<div id="top">
+		<h4> {{ feedback_msg }} </h4>
+		{% if link == "Register" %}
+		<a href="{% url 'trading:register' %}"> {{ button }} </a>
+		{% elif link == "Login" %}
+		<a href="{% url 'trading:login' %}"> {{ button }} </a>
+		{% elif link == "Query" %}
+		<a href="{% url 'trading:query' %}"> {{ button }} </a>
+		{% elif link == "Purchase" %}
+		<a href="{% url 'trading:purchase' %}"> {{ button }} </a>
+		{% elif link == "Index" %}
+		<a href="{% url 'trading:index' %}"> {{ button }} </a>
+		{% endif %}
+	</div>
+{% endblock %}

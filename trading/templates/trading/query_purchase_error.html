@@ -1,0 +1,20 @@
+{% extends 'trading/base.html' %}
+{% block head %}
+	<title> {{ title }} - Error </title>
+{% endblock %}
+{% block body %}
+	<div id="top">
+		{% if error_type == 1 %}
+			<h4> Error! It seems that the stock symbol ({{ stock_symbol }}) you entered does not exist. Please try again! </h4>
+		{% elif error_type == 2 %}
+			<h4> Error! It seems that you have insufficient funds to buy {{ quantity }} ({{ stock_symbol }}) shares for a total of: {{ cash_needed }}$. </h4>
+			<h4> Your current balance is: {{ balance }}$ </h4>
+		{% endif %}
+		
+		{% if title == "Query" %}
+			<a href="{% url 'trading:query' %}"> Back to {{ title }} </a>
+		{% elif title == "Purchase" %}
+			<a href="{% url 'trading:purchase' %}"> Back to {{ title }} </a>
+		{% endif %}
+	</div>
+{% endblock %}

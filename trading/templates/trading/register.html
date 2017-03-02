@@ -1,0 +1,20 @@
+{% extends 'trading/base.html' %}
+{% load staticfiles %}
+{% block head %}
+<head>
+	<title> Register </title>
+	<link href="{% static 'trading/form-general.css' %}" rel="stylesheet" type="text/css" >
+</head>
+{% endblock %}
+{% block body %}
+	<div id="top">
+		<h3> Please register a new account: </h3>
+	</div>
+	<div>
+		<form action="/trading/register" method="post" class="form-general">
+			{% csrf_token %}
+			{{ form }}
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+		</form>
+	</div>
+{% endblock %}
